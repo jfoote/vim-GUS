@@ -1,0 +1,61 @@
+*GUS.txt*   Git URL Sharing vim plugin
+
+                              Reference Manual~
+
+
+
+
+==============================================================================
+CONTENTS                                                   *GUS-contents*
+
+    1.Intro...................................|GUS|
+    2.Functionality provided..................|GUSFunctionality|
+        2.1.Global commands...................|GUSGlobalCommands|
+    3.About...................................|GUSAbout|
+    4.License.................................|GUSLicense|
+
+==============================================================================
+1. Intro                                                            *GUS*
+
+GUS adds commands to vim that print the git HTTP URL for the code under the 
+cursor and copy the URL to the clipboard if possible. 
+
+GUS is a simple tool that helps vim users share links to code for rapid 
+collaborative analysis via IRC/Slack/chat, wikis, and so on.
+
+For more information, see http://github.com/jfoote/vim-GUS
+
+==============================================================================
+2. Functionality provided                              *GUSFunctionality*
+
+------------------------------------------------------------------------------
+2.1. Global Commands                                  *GUSGlobalCommands*
+
+:GUS
+    This command prints the URL for the current line number and copies it to 
+    the clipboard if possible.
+
+:GUM
+    This command prints a markdown-formatted link for the current line 
+    number's URL and copies it to the clipboard if possible.
+
+:GUR
+    This command prints a redmine-formatted link for the current line 
+    number's URL and copies it to the clipboard if possible.
+
+:GUW
+    This command prints the location of the signle-file GUS plugin 
+    implementation on your local filesystem to encourage hacking it.
+
+==============================================================================
+5. About                                                       *GUSAbout*
+
+GUS is maintained by Jonathan Foote. See http://github.com/jfoote/vim-GUS 
+for more information on this project.
+
+==============================================================================
+8. License                                                   *GUSLicense*
+
+GUS is released under the MIT License.
+
+See http://github.com/jfoote/vim-GUS/LICENSE.md.
