@@ -1,12 +1,17 @@
 scriptencoding utf-8
 
+" Perform init checks
+
 if exists('g:loaded_gus') || !executable('git') || !has('signs') || &cp
   finish
 endif
 
 let g:loaded_gus = 1
+let g:loc = resolve(expand('<sfile>:p'))
 
-function! gus#repo_id()
+" Define helper functions
+
+function! gus#remote_url()
     return gus#system("cd " . gus#dir() . " && git config --get remote.origin.url")
 endfunction
 
@@ -31,42 +36,55 @@ function! gus#branch_name()
     return gus#system("cd " . gus#dir() . " && git branch | grep '*' | sed 's/\* //'")
 endfunction
 
+" **** Link template function ****
+" Hack here to support your projects' git URL schemes
 function! gus#link_url()
+    let l:url = gus#remote_url() . "/blob/" . gus#branch_name() . "/" . gus#git_filepath() . "#L" . line(".")
+
     " So hack. 
-    let l:out = substitute(gus#get_url(), "ssh://.*@", "http://", "")
+    let l:link = substitute(l:url, "ssh://.*@", "http://", "")
 
-    return l:out
+    return l:link
 endfunction
 
-function! gus#get_url()
-    return gus#repo_id() . "/blob/" . gus#branch_name() . "/" . gus#git_filepath() . "#L" . line(".")
-endfunction
-
-function! gus#copy_url(url)
-    let l:copied = 0
+function! gus#copy(url)
     if executable("pbcopy")
         call gus#system("echo '". a:url . "' | pbcopy")
-        let l:copied = 1
+        return 1
     endif
-    return l:copied
+    return 0
     " TODO add support for other utils
 endfunction
 
-function! gus#process_url()
-    let l:url = gus#link_url()
-    if gus#copy_url(l:url)
-        let l:url = l:url . " (copied)"
+" Define main command-handling functions
+
+function! gus#copy_and_show_url()
+    let l:link = gus#link_url()
+    if gus#copy(l:link)
+        let l:link = l:link . " (copied)"
     endif
-    echo l:url
+    echo l:link
 endfunction
 
-function! gus#enable()
-    let g:gus_enabled = 1
+function! gus#copy_and_show_markdown()
+    let l:md = "[" . gus#git_filepath() . " line " . line(".") . "](" . gus#link_url() . ")"
+    if gus#copy(l:md)
+        let l:md = l:md. " (copied)"
+    endif
+    echo l:md
 endfunction
 
-function! gus#disable()
-    let g:gus_enabled = 0
+function! gus#copy_and_show_redmine()
+    let l:rm  = '"' . gus#git_filepath() . " line " . line(".") . '":' . gus#link_url() 
+    if gus#copy(l:rm)
+        let l:rm = l:rm. " (copied)"
+    endif
+    echo l:rm
 endfunction
 
-call gus#enable()
-command GU call gus#process_url()
+" Define commands
+
+command GUS call gus#copy_and_show_url()
+command GUM call gus#copy_and_show_markdown()
+command GUR call gus#copy_and_show_redmine()
+command GUW echo "GUS plugin is here: " . g:loc
