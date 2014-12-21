@@ -1,5 +1,9 @@
 scriptencoding utf-8
 
+" https://github.com/jfoote/vim-GUS
+" jmfoote@loyola.edu
+" 2014 Dec 21
+
 " Perform init checks
 
 if exists('g:loaded_gus') || !executable('git') || !has('signs') || &cp
