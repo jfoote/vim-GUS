@@ -12,7 +12,7 @@ For example,
 
 ![See URL](https://raw.githubusercontent.com/jfoote/vim-GUS/master/example/3.png)
 
-![Paste in browser](https://raw.githubusercontent.com/jfoote/vim-GUS/blob/master/example/3.png)
+![Paste in browser](https://raw.githubusercontent.com/jfoote/vim-GUS/master/example/4.png)
 
 ## Installation
 
