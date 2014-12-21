@@ -6,11 +6,15 @@ GUS is a simple tool that helps vim users share links to code for rapid collabor
 
 For example,
 
+Move your cursor to the interesting line and run `:GUS`
+
 ![Move cursor to interesting text](https://raw.githubusercontent.com/jfoote/vim-GUS/master/example/1.png)
 
 ![Run :GUS command](https://raw.githubusercontent.com/jfoote/vim-GUS/master/example/2.png)
 
 ![See URL](https://raw.githubusercontent.com/jfoote/vim-GUS/master/example/3.png)
+
+Then send your URL to be opened in a browser
 
 ![Paste in browser](https://raw.githubusercontent.com/jfoote/vim-GUS/master/example/4.png)
 
