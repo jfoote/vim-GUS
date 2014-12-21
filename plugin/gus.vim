@@ -12,11 +12,13 @@ let g:loc = resolve(expand('<sfile>:p'))
 " Define helper functions
 
 function! gus#remote_url()
-    return gus#system("cd " . gus#dir() . " && git config --get remote.origin.url")
+    return gus#system("cd " . gus#dir() . 
+                \" && git config --get remote.origin.url")
 endfunction
 
 function! gus#commit_id()
-    return gus#system("cd ". gus#dir() . " && git log --format='%H' -n 1")
+    return gus#system("cd ". gus#dir() . 
+                \" && git log --format='%H' -n 1")
 endfunction
 
 function! gus#system(cmd)
@@ -28,23 +30,29 @@ function! gus#dir()
 endfunction
 
 function! gus#git_filepath()
-    let l:dir_from_repo = gus#system("cd " . gus#dir() . " && git rev-parse --show-prefix")
+    let l:dir_from_repo = gus#system("cd " . gus#dir() . 
+                \" && git rev-parse --show-prefix")
     return l:dir_from_repo . fnamemodify(expand("%:p"), ":t")
 endfunction
 
 function! gus#branch_name()
-    return gus#system("cd " . gus#dir() . " && git branch | grep '*' | sed 's/\* //'")
+    return gus#system("cd " . gus#dir() . 
+                \" && git branch | grep '*' | sed 's/\* //'")
 endfunction
 
 " **** Link template function ****
 " Hack here to support your projects' git URL schemes
 function! gus#link_url()
-    let l:url = gus#remote_url() . "/blob/" . gus#branch_name() . "/" . gus#git_filepath() . "#L" . line(".")
+    let l:remote = gus#remote_url()
 
     " So hack. 
-    let l:link = substitute(l:url, "ssh://.*@", "http://", "")
+    let l:remote = substitute(l:remote, "ssh://.*@", "http://", "")
+    let l:remote = substitute(l:remote, "\.git$", "", "")
 
-    return l:link
+    let l:url = l:remote . "/blob/" . gus#branch_name() . "/" . 
+                \gus#git_filepath() . "#L" . line(".")
+
+    return l:url
 endfunction
 
 function! gus#copy(url)
@@ -67,7 +75,8 @@ function! gus#copy_and_show_url()
 endfunction
 
 function! gus#copy_and_show_markdown()
-    let l:md = "[" . gus#git_filepath() . " line " . line(".") . "](" . gus#link_url() . ")"
+    let l:md = "[" . gus#git_filepath() . " line " . line(".") . "](" . 
+                \gus#link_url() . ")"
     if gus#copy(l:md)
         let l:md = l:md. " (copied)"
     endif
@@ -75,7 +84,8 @@ function! gus#copy_and_show_markdown()
 endfunction
 
 function! gus#copy_and_show_redmine()
-    let l:rm  = '"' . gus#git_filepath() . " line " . line(".") . '":' . gus#link_url() 
+    let l:rm  = '"' . gus#git_filepath() . " line " . line(".") . '":' . 
+                \gus#link_url() 
     if gus#copy(l:rm)
         let l:rm = l:rm. " (copied)"
     endif
