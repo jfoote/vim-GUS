@@ -4,9 +4,7 @@ GUS adds commands to vim that print the git HTTP URL for the code under the curs
 
 GUS is a simple tool that helps vim users share links to code for rapid collaborative analysis via IRC/Slack/chat, wikis, and so on.
 
-For example,
-
-Move your cursor to the interesting line and run `:GUS`
+Move your cursor to the line you want the URL for and run `:GUS`
 
 ![Move cursor to interesting text](https://raw.githubusercontent.com/jfoote/vim-GUS/master/example/1.png)
 
@@ -14,7 +12,7 @@ Move your cursor to the interesting line and run `:GUS`
 
 ![See URL](https://raw.githubusercontent.com/jfoote/vim-GUS/master/example/3.png)
 
-Then send your URL to be opened in a browser
+Then share the URL:
 
 ![Paste in chat](https://raw.githubusercontent.com/jfoote/vim-GUS/master/example/3.5.png)
 
