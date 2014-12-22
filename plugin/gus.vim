@@ -51,9 +51,12 @@ endfunction
 " **** Link template function ****
 " Hack here to support your projects' git URL schemes
 function! gus#link_url()
-    let l:remote = gus#remote_url()
 
-    " So hack. 
+    " This could be a lot better ('man git-clone' to see the volume of valid
+    " URI schemes). If needs be you can just hard-code the base URL for your
+    " projects' git servers instead of using gus#remote_url(). Or fix this 
+    " logic and open a pull request :)
+    let l:remote = gus#remote_url()
     let l:remote = substitute(l:remote, "ssh://.*@", "http://", "")
     let l:remote = substitute(l:remote, "\.git$", "", "")
 
@@ -67,9 +70,15 @@ function! gus#copy(url)
     if executable("pbcopy")
         call gus#system("echo '". a:url . "' | pbcopy")
         return 1
+    elseif executable("xsel")
+        call gus#system("echo '". a:url . "' | xsel")
+        return 1
+    elseif executable("xclip")
+        " warning: may require X display
+        call gus#system("echo '". a:url . "' | xclip -selection c")
+        return 1
     endif
     return 0
-    " TODO add support for other utils
 endfunction
 
 " Define main command-handling functions

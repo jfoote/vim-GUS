@@ -61,7 +61,7 @@ The clipboard logic is located in a single function, `gus#copy`, in the single f
 
 ## TODO
 
-- [ ] Add support for `xsel` and `xclip`
+- [x] Add support for `xsel` and `xclip`
 - [ ] Add support for Windows
 
 ## Contributions
