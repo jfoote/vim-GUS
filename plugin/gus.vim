@@ -106,7 +106,9 @@ function! gus#copy_and_show_markdown()
         let l:md = "[" . gus#git_filepath() . " line " . line(".") . "](" . 
                     \gus#link_url() . ")"
         if gus#copy(l:md)
-            let l:md = l:md. " (copied)"
+            let l:md = l:md . " (copied)"
+        else
+            let l:md = l:md . " (not copied)"
         endif
         echo l:md
     catch /cmd error/
@@ -119,7 +121,9 @@ function! gus#copy_and_show_redmine()
         let l:rm  = '"' . gus#git_filepath() . " line " . line(".") . '":' . 
                     \gus#link_url() 
         if gus#copy(l:rm)
-            let l:rm = l:rm. " (copied)"
+            let l:rm = l:rm . " (copied)"
+        else
+            let l:rm = l:rm . " (not copied)"
         endif
         echo l:rm
     catch /cmd error/
