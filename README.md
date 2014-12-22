@@ -16,7 +16,9 @@ Move your cursor to the interesting line and run `:GUS`
 
 Then send your URL to be opened in a browser
 
-![Paste in browser](https://raw.githubusercontent.com/jfoote/vim-GUS/master/example/4.png)
+![Paste in chat](https://raw.githubusercontent.com/jfoote/vim-GUS/master/example/3.5.png)
+
+![Open link in browser](https://raw.githubusercontent.com/jfoote/vim-GUS/master/example/4.png)
 
 ## Installation
 
@@ -65,11 +67,7 @@ Please log issues in the GitHub project issue tracker and feel free to contact m
 
 ## Other notes
 
-GUS is simple; it should be a good starting point or template for hacking together tools for vim, git, or both. If you have any questions about these topics, or you're interested in broader topics in development, computer security, or related philosophy feel free to drop me a line at [jmfoote@loyola.edu](mailto:jmfoote@loyola.edu) or my [obligatory github.io landing page](https://jfoote.github.io). 
-
 Something that encompasses this plugin's functionality might already exist -- if you know of something that does please [let me know](mailto:jmfoote@loyola.edu) and I'll point readers to it.
-
-Thanks for reading all the way to the end. The world needs more developers like you.
 
 ```
 Jonathan Foote
