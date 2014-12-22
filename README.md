@@ -66,7 +66,7 @@ The clipboard logic is located in a single function, `gus#copy`, in the single f
 
 ## Contributions
 
-Please log issues in the GitHub project issue tracker and feel free to contact me at [jmfoote@loyola.edu](mailto:jmfoote@loyola.edu) if you have any questions. If you happen to add any useful features, such as better URL scheme logic or support for additional clipboard utilities, please consider contibuting your code back via pull request.
+Please log issues in the GitHub project issue tracker and feel free to contact me at [jmfoote@loyola.edu](mailto:jmfoote@loyola.edu) if you have any questions. If you happen to add any useful features, such as better URL scheme logic or support for additional clipboard utilities, please consider contributing your code back via pull request.
 
 ## Other notes
 
