@@ -51,13 +51,13 @@ This command prints the location of the single-file GUS plugin implementation ([
 
 Well-known git commands are used to determine the current git repo's remote and relative file path. A simple string substitution is used to replace any `ssh://` URL schemes with `http://`. 
 
-The URL creation logic is located in a single function, `gus#link_url`, in the single file that implements this plugin, [gus.vim](http://github.com/jfoote/vim-GUS/blob/master/plugin/gus.vim). If this hack won't work for you feel free to edit the code to suit your needs. As mentioned above, you can use the `:GUW` command in vim to locate the plugin file on your local filesystem if you forgot where you put it.
+The URL creation logic is located in a single function, `gus#link_url`, in the single file that implements this plugin, [gus.vim](http://github.com/jfoote/vim-GUS/blob/master/plugin/gus.vim). If this hack won't work for you feel free to edit the code to suit your needs. You can use the `:GUW` command in vim to locate the plugin file on your local filesystem if you forgot where you put it.
 
 ### Copying to clipboard
 
 GUS uses common command line utilities, such as `pbcopy` on OSX, to copy respective URL text to the clipboard. If no supported command is found, the text is printed to the vim status bar so you can copy it manually.
 
-The clipboard logic is located in a single function, `gus#copy`, in the single file that implements this plugin, [gus.vim](http://github.com/jfoote/vim-GUS/blob/master/plugin/gus.vim). If this hack won't work for you feel free to edit the code to suit your needs. You can use the `:GUW` command in vim to locate the plugin file on your local filesystem if you forgot where you put it.
+The clipboard logic is located in a single function, `gus#copy`, in the single file that implements this plugin, [gus.vim](http://github.com/jfoote/vim-GUS/blob/master/plugin/gus.vim). If this hack won't work for you feel free to edit the code to suit your needs. As mentioned above, you can use the `:GUW` command in vim to locate the plugin file on your local filesystem if you forgot where you put it.
 
 ## TODO
 
