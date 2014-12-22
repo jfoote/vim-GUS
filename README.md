@@ -51,7 +51,7 @@ This command prints the location of the single-file GUS plugin implementation ([
 
 Well-known git commands are used to determine the current git repo's remote and relative file path. A simple string substitution is used to replace any `ssh://` URL schemes with `http://`. 
 
-The URL creation logic is located in a single function, `gus#link_url`, in the single file that implements this plugin, [gus.vim](http://github.com/jfoote/vim-GUS/blob/master/plugin/gus.vim). If this hack won't work for you feel free to edit the code to suite your needs. You can use the `:GUW` command in vim to locate the plugin file on your local filesystem if you forgot where you put it.
+The URL creation logic is located in a single function, `gus#link_url`, in the single file that implements this plugin, [gus.vim](http://github.com/jfoote/vim-GUS/blob/master/plugin/gus.vim). If this hack won't work for you feel free to edit the code to suit your needs. As mentioned above, you can use the `:GUW` command in vim to locate the plugin file on your local filesystem if you forgot where you put it.
 
 ### Copying to clipboard
 
@@ -66,7 +66,7 @@ The clipboard logic is located in a single function, `gus#copy`, in the single f
 
 ## Contributions
 
-Please log issues in the GitHub project issue tracker and feel free to contact me at [jmfoote@loyola.edu](mailto:jmfoote@loyola.edu) if you have any questions. If you happen to add any useful features, such as better URL scheme logic or support for additional clipboard utilities, directly to the plugin please consider contibuting your code back via pull request.
+Please log issues in the GitHub project issue tracker and feel free to contact me at [jmfoote@loyola.edu](mailto:jmfoote@loyola.edu) if you have any questions. If you happen to add any useful features, such as better URL scheme logic or support for additional clipboard utilities, please consider contibuting your code back via pull request.
 
 ## Other notes
 
