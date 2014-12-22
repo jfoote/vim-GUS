@@ -26,7 +26,11 @@ function! gus#commit_id()
 endfunction
 
 function! gus#system(cmd)
-    return substitute(call('system', [a:cmd]), '\n$', '', '')
+    let l:out = substitute(call('system', [a:cmd]), '\n$', '', '')
+    if v:shell_error != 0
+        throw 'cmd error'
+    endif
+    return l:out
 endfunction
 
 function! gus#dir()
@@ -71,29 +75,41 @@ endfunction
 " Define main command-handling functions
 
 function! gus#copy_and_show_url()
-    let l:link = gus#link_url()
-    if gus#copy(l:link)
-        let l:link = l:link . " (copied)"
-    endif
-    echo l:link
+    try
+        let l:link = gus#link_url()
+        if gus#copy(l:link)
+            let l:link = l:link . " (copied)"
+        endif
+        echo l:link
+    catch /cmd error/
+        echo "GUS error: can't get URL"
+    endtry
 endfunction
 
 function! gus#copy_and_show_markdown()
-    let l:md = "[" . gus#git_filepath() . " line " . line(".") . "](" . 
-                \gus#link_url() . ")"
-    if gus#copy(l:md)
-        let l:md = l:md. " (copied)"
-    endif
-    echo l:md
+    try
+        let l:md = "[" . gus#git_filepath() . " line " . line(".") . "](" . 
+                    \gus#link_url() . ")"
+        if gus#copy(l:md)
+            let l:md = l:md. " (copied)"
+        endif
+        echo l:md
+    catch /cmd error/
+        echo "GUS error: can't get URL"
+    endtry
 endfunction
 
 function! gus#copy_and_show_redmine()
-    let l:rm  = '"' . gus#git_filepath() . " line " . line(".") . '":' . 
-                \gus#link_url() 
-    if gus#copy(l:rm)
-        let l:rm = l:rm. " (copied)"
-    endif
-    echo l:rm
+    try
+        let l:rm  = '"' . gus#git_filepath() . " line " . line(".") . '":' . 
+                    \gus#link_url() 
+        if gus#copy(l:rm)
+            let l:rm = l:rm. " (copied)"
+        endif
+        echo l:rm
+    catch /cmd error/
+        echo "GUS error: can't get URL"
+    endtry
 endfunction
 
 " Define commands

@@ -65,7 +65,7 @@ Please log issues in the GitHub project issue tracker and feel free to contact m
 
 ## Other notes
 
-Something that encompasses this plugin's functionality might already exist -- if you know of something that does please [let me know](mailto:jmfoote@loyola.edu) and I'll point readers to it.
+If you know of a plugin that encompasses GUS's functionality or is just way better than it please [let me know](mailto:jmfoote@loyola.edu) and I'll point any readers of this file to it.
 
 ```
 Jonathan Foote
