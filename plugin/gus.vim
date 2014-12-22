@@ -57,6 +57,7 @@ function! gus#link_url()
     " projects' git servers instead of using gus#remote_url(). Or fix this 
     " logic and open a pull request :)
     let l:remote = gus#remote_url()
+    let l:remote = substitute(l:remote, '^.*@\([^:]\+\):', 'http://\1/', "")
     let l:remote = substitute(l:remote, "ssh://.*@", "http://", "")
     let l:remote = substitute(l:remote, "\.git$", "", "")
 
