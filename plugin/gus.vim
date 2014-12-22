@@ -67,17 +67,21 @@ function! gus#link_url()
 endfunction
 
 function! gus#copy(url)
-    if executable("pbcopy")
-        call gus#system("echo '". a:url . "' | pbcopy")
-        return 1
-    elseif executable("xsel")
-        call gus#system("echo '". a:url . "' | xsel")
-        return 1
-    elseif executable("xclip")
-        " warning: may require X display
-        call gus#system("echo '". a:url . "' | xclip -selection c")
-        return 1
-    endif
+    try
+        if executable("pbcopy")
+            call gus#system("echo '". a:url . "' | pbcopy")
+            return 1
+        elseif executable("xsel")
+            call gus#system("echo '". a:url . "' | xsel")
+            return 1
+        elseif executable("xclip")
+            " warning: may require X display
+            call gus#system("echo '". a:url . "' | xclip -selection c")
+            return 1
+        endif
+    catch /cmd error/
+        " probably linux without X display
+    endtry
     return 0
 endfunction
 
