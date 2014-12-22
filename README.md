@@ -18,6 +18,10 @@ Then share the URL:
 
 ![Open link in browser](https://raw.githubusercontent.com/jfoote/vim-GUS/master/example/4.png)
 
+## Alternatives
+
+[vim-fugitive](https://github.com/tpope/vim-fugitive/) includes the [:GBrowse command](https://github.com/tpope/vim-fugitive/blob/2c8461db084d205903a792a23163faa546f143c9/plugin/fugitive.vim#L2123) that will open your browser (rather than copying the URL) to the highlighted lines in the corresponding repo on GitHub.com. Thanks to `welle` on [reddit](http://www.reddit.com/r/vim/comments/2q2bos/vimgus_a_simple_git_url_sharing_plugin/) for pointing me to this-- I'd definitely recommend it if you are exclusively working on GitHub projects, you don't need to hack the URL generation logic, the markdown/redmine commands aren't helpful, etc. Especially if you already have fugitive installed :)
+
 ## Installation
 
 [pathogen.vim](https://github.com/tpope/vim-pathogen) is the recommended way to install GUS.
