@@ -1,4 +1,4 @@
-# *G*it *U*RL *S*haring vim plugin (GUS)
+# *G*it *U*RL *S*haring (GUS) vim plugin 
 
 GUS adds commands to vim that print the git HTTP URL for the code under the cursor and copy the URL to the clipboard if possible. 
 
