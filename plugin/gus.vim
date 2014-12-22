@@ -92,6 +92,8 @@ function! gus#copy_and_show_url()
         let l:link = gus#link_url()
         if gus#copy(l:link)
             let l:link = l:link . " (copied)"
+        else
+            let l:link = l:link . " (not copied)"
         endif
         echo l:link
     catch /cmd error/
