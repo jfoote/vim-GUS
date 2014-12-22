@@ -59,9 +59,14 @@ GUS uses common command line utilities, such as `pbcopy` on OSX, to copy respect
 
 The clipboard logic is located in a single function, `gus#copy`, in the single file that implements this plugin, [gus.vim](http://github.com/jfoote/vim-GUS/blob/master/plugin/gus.vim). If this hack won't work for you feel free to edit the code to suit your needs. You can use the `:GUW` command in vim to locate the plugin file on your local filesystem if you forgot where you put it.
 
+## TODO
+
+- [ ] Add support for `xsel` and `xclip`
+- [ ] Add support for Windows
+
 ## Contributions
 
-Please log issues in the GitHub project issue tracker and feel free to contact me at [jmfoote@loyola.edu](mailto:jmfoote@loyola.edu) if you have any questions. If you add any cool features, such as better URL scheme logic or support for additional clipboard utilities, please consider contibuting your code back via pull request.
+Please log issues in the GitHub project issue tracker and feel free to contact me at [jmfoote@loyola.edu](mailto:jmfoote@loyola.edu) if you have any questions. If you happen to add any useful features, such as better URL scheme logic or support for additional clipboard utilities, directly to the plugin please consider contibuting your code back via pull request.
 
 ## Other notes
 
