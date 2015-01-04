@@ -59,7 +59,7 @@ function! gus#link_url()
     let l:remote = gus#remote_url()
     let l:remote = substitute(l:remote, '^.*@\([^:]\+\):', 'http://\1/', "")
     let l:remote = substitute(l:remote, "ssh://.*@", "http://", "")
-    let l:remote = substitute(l:remote, "\.git$", "", "")
+    let l:remote = substitute(l:remote, "\\.git$", "", "")
 
     let l:url = l:remote . "/blob/" . gus#branch_name() . "/" . 
                 \gus#git_filepath() . "#L" . line(".")
