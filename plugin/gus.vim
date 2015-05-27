@@ -45,7 +45,7 @@ endfunction
 
 function! gus#branch_name()
     return gus#system("cd " . gus#dir() . 
-                \" && git branch | grep '*' | sed 's/\* //'")
+                \" && git branch | grep --color=never '*' | sed 's/\* //'")
 endfunction
 
 " **** Link template function ****
